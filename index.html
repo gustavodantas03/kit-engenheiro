@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-br" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit Engenheiro Produtivo</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Bebas Neue"', 'sans-serif'],
+        body: ['"DM Sans"', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+  <style>
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(234, 179, 8, 0.6); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.anim-slide { animation: slide-up 0.6s ease-out both; }
+.anim-d1 { animation-delay: 0.1s; }
+.anim-d2 { animation-delay: 0.2s; }
+.anim-d3 { animation-delay: 0.3s; }
+.anim-d4 { animation-delay: 0.4s; }
+.pulse-btn { animation: pulse-glow 2s infinite; }
+.timer-pulse { animation: count-pulse 1s infinite; }
+.diagonal-bg {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.diagonal-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(234,179,8,0.02) 40px,
+    rgba(234,179,8,0.02) 80px
+  );
+  pointer-events: none;
+}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-neutral-950 text-white overflow-auto"><!-- HERO -->
+  <header class="diagonal-bg text-center px-6 py-20 md:py-28 relative">
+   <div class="max-w-3xl mx-auto relative z-10">
+    <div class="inline-block bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-6 anim-slide"><span class="text-yellow-400 text-sm font-semibold tracking-wide">🚧 OFERTA POR TEMPO LIMITADO</span>
+    </div>
+    <h1 id="hero-title" class="font-display text-5xl md:text-7xl text-white leading-none tracking-wide mb-4 anim-slide anim-d1">Pare de perder dinheiro nas suas obras</h1>
+    <p id="hero-subtitle" class="text-lg md:text-xl text-neutral-300 mb-8 anim-slide anim-d2">+150 planilhas prontas para engenheiros organizarem tudo</p>
+    <div class="flex items-center justify-center gap-4 mb-6 anim-slide anim-d3"><span id="hero-original-price" class="text-neutral-500 line-through text-xl">R$97</span> <span id="hero-sale-price" class="text-5xl font-display text-yellow-400 tracking-wider">R$5,00</span>
+    </div><a id="hero-cta" href="https://pay.kiwify.com.br/zL8yArg" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold text-lg px-10 py-4 rounded-lg transition-all pulse-btn anim-slide anim-d4"> QUERO ACESSO IMEDIATO </a>
+    <div id="timer" class="mt-6 text-yellow-400/80 font-mono text-lg timer-pulse"></div>
+   </div><!-- Bottom fade -->
+   <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-neutral-950 to-transparent"></div>
+  </header><!-- PROBLEMA -->
+  <section class="px-6 py-16 md:py-20">
+   <div class="max-w-3xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl text-red-500 tracking-wide mb-8">❌ O PROBLEMA</h2>
+    <p class="text-neutral-300 text-lg mb-6">Se você é engenheiro, provavelmente já passou por isso:</p>
+    <div class="grid gap-3">
+     <div class="flex items-center gap-3 bg-red-500/5 border border-red-500/20 rounded-lg p-4"><i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0"></i> <span class="text-neutral-200">Falta de controle financeiro</span>
+     </div>
+     <div class="flex items-center gap-3 bg-red-500/5 border border-red-500/20 rounded-lg p-4"><i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0"></i> <span class="text-neutral-200">Erros em orçamento</span>
+     </div>
+     <div class="flex items-center gap-3 bg-red-500/5 border border-red-500/20 rounded-lg p-4"><i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0"></i> <span class="text-neutral-200">Perda de dinheiro</span>
+     </div>
+     <div class="flex items-center gap-3 bg-red-500/5 border border-red-500/20 rounded-lg p-4"><i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0"></i> <span class="text-neutral-200">Desorganização total</span>
+     </div>
+    </div>
+   </div>
+  </section><!-- SOLUÇÃO -->
+  <section class="px-6 py-16 md:py-20 bg-yellow-500/5 border-y border-yellow-500/10">
+   <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-display text-4xl md:text-5xl text-yellow-400 tracking-wide mb-6">✅ A SOLUÇÃO</h2>
+    <p class="text-neutral-200 text-xl leading-relaxed">Com o <strong class="text-yellow-400">Kit Engenheiro Produtivo</strong>, você resolve tudo isso em minutos.</p>
+   </div>
+  </section><!-- O QUE RECEBE -->
+  <section class="px-6 py-16 md:py-20">
+   <div class="max-w-3xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl text-white tracking-wide mb-10">📦 O QUE VOCÊ RECEBE</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="users" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Controle de clientes</p>
+       <p class="text-sm text-neutral-400 mt-1">Gerencie todos os seus clientes</p>
+      </div>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="calculator" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Orçamentos automáticos</p>
+       <p class="text-sm text-neutral-400 mt-1">Gere orçamentos em segundos</p>
+      </div>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="trending-up" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Fluxo de caixa</p>
+       <p class="text-sm text-neutral-400 mt-1">Acompanhe entradas e saídas</p>
+      </div>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="wallet" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Gestão financeira</p>
+       <p class="text-sm text-neutral-400 mt-1">Controle completo do dinheiro</p>
+      </div>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="hard-hat" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Planejamento de obra</p>
+       <p class="text-sm text-neutral-400 mt-1">Organize cada etapa</p>
+      </div>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/40 transition-colors">
+      <div class="bg-yellow-500/10 rounded-lg p-2">
+       <i data-lucide="package" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Controle de estoque</p>
+       <p class="text-sm text-neutral-400 mt-1">Nunca mais falte material</p>
+      </div>
+     </div>
+     <div class="sm:col-span-2 bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 border border-yellow-500/30 rounded-xl p-5 flex items-center gap-4">
+      <div class="bg-yellow-500/20 rounded-lg p-2">
+       <i data-lucide="layers" class="text-yellow-400 w-5 h-5"></i>
+      </div>
+      <p class="font-bold text-yellow-400 text-lg">+150 planilhas profissionais</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- BÔNUS -->
+  <section class="px-6 py-16 md:py-20 bg-neutral-900/50 border-y border-neutral-800">
+   <div class="max-w-3xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl text-yellow-400 tracking-wide mb-8">🎁 BÔNUS EXCLUSIVOS</h2>
+    <div class="space-y-4">
+     <div class="flex items-center gap-4 bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+      <div class="bg-green-500/10 rounded-lg p-2">
+       <i data-lucide="file-text" class="text-green-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Modelos de contratos</p>
+       <p class="text-sm text-neutral-400">Prontos para usar</p>
+      </div><span class="ml-auto bg-green-500/10 text-green-400 text-xs font-bold px-3 py-1 rounded-full">GRÁTIS</span>
+     </div>
+     <div class="flex items-center gap-4 bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+      <div class="bg-green-500/10 rounded-lg p-2">
+       <i data-lucide="book-open" class="text-green-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Memorial descritivo</p>
+       <p class="text-sm text-neutral-400">Modelo completo</p>
+      </div><span class="ml-auto bg-green-500/10 text-green-400 text-xs font-bold px-3 py-1 rounded-full">GRÁTIS</span>
+     </div>
+     <div class="flex items-center gap-4 bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+      <div class="bg-green-500/10 rounded-lg p-2">
+       <i data-lucide="brain" class="text-green-400 w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="font-semibold text-white">Manual de mentalidade</p>
+       <p class="text-sm text-neutral-400">Mindset do engenheiro produtivo</p>
+      </div><span class="ml-auto bg-green-500/10 text-green-400 text-xs font-bold px-3 py-1 rounded-full">GRÁTIS</span>
+     </div>
+    </div>
+   </div>
+  </section><!-- DEPOIMENTOS -->
+  <section class="px-6 py-16 md:py-20">
+   <div class="max-w-3xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl text-white tracking-wide mb-10">💬 DEPOIMENTOS</h2>
+    <div class="grid gap-4">
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 relative">
+      <div class="flex gap-1 mb-3"><i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+      </div>
+      <p class="text-neutral-200 italic mb-3">"Me economizou horas toda semana!"</p>
+      <p class="text-sm text-yellow-400 font-semibold">Carlos — Engenheiro Civil</p>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 relative">
+      <div class="flex gap-1 mb-3"><i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+      </div>
+      <p class="text-neutral-200 italic mb-3">"Comecei a ter controle total da obra"</p>
+      <p class="text-sm text-yellow-400 font-semibold">Juliana — Arquiteta</p>
+     </div>
+     <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 relative">
+      <div class="flex gap-1 mb-3"><i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+      </div>
+      <p class="text-neutral-200 italic mb-3">"Vale muito mais que R$5"</p>
+      <p class="text-sm text-yellow-400 font-semibold">Marcos — Técnico em Edificações</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- CTA FINAL -->
+  <section class="px-6 py-20 md:py-28 diagonal-bg text-center relative">
+   <div class="max-w-2xl mx-auto relative z-10">
+    <h2 class="font-display text-4xl md:text-6xl text-white tracking-wide mb-4">🔥 GARANTA AGORA</h2>
+    <div class="flex items-center justify-center gap-4 mb-8"><span id="footer-original-price" class="text-neutral-500 line-through text-xl">De R$97</span> <span class="text-neutral-400">por apenas</span> <span id="footer-sale-price" class="text-5xl font-display text-yellow-400 tracking-wider">R$5,00</span>
+    </div><a id="footer-cta" href="https://pay.kiwify.com.br/zL8yArg" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold text-xl px-12 py-5 rounded-lg transition-all pulse-btn"> GARANTIR AGORA </a>
+    <p class="text-neutral-500 text-sm mt-6">Acesso imediato após o pagamento</p>
+   </div>
+  </section>
+  <script>
+  const defaultConfig = {
+    main_title: 'Pare de perder dinheiro nas suas obras',
+    subtitle: '+150 planilhas prontas para engenheiros organizarem tudo',
+    original_price: 'R$97',
+    sale_price: 'R$5,00',
+    cta_text: 'QUERO ACESSO IMEDIATO',
+    background_color: '#0a0a0a',
+    surface_color: '#171717',
+    text_color: '#e5e5e5',
+    accent_color: '#eab308',
+    cta_color: '#22c55e',
+    font_family: 'DM Sans',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    const c = key => config[key] || defaultConfig[key];
+
+    document.getElementById('hero-title').textContent = c('main_title');
+    document.getElementById('hero-subtitle').textContent = c('subtitle');
+    document.getElementById('hero-original-price').textContent = c('original_price');
+    document.getElementById('hero-sale-price').textContent = c('sale_price');
+    document.getElementById('hero-cta').textContent = c('cta_text');
+    document.getElementById('footer-original-price').textContent = 'De ' + c('original_price');
+    document.getElementById('footer-sale-price').textContent = c('sale_price');
+    document.getElementById('footer-cta').textContent = 'GARANTIR AGORA';
+
+    const font = c('font_family');
+    const baseSize = c('font_size');
+    document.body.style.fontFamily = `${font}, "DM Sans", sans-serif`;
+
+    // Apply font sizes proportionally
+    document.querySelectorAll('.font-display').forEach(el => {
+      el.style.fontFamily = `"Bebas Neue", ${font}, sans-serif`;
+    });
+
+    document.body.style.fontSize = baseSize + 'px';
+
+    // Colors
+    document.body.style.backgroundColor = c('background_color');
+    document.body.style.color = c('text_color');
+
+    document.querySelectorAll('.bg-neutral-900').forEach(el => {
+      el.style.backgroundColor = c('surface_color');
+    });
+  }
+
+  // Element SDK init
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => {
+        const c = key => config[key] || defaultConfig[key];
+        const makeColor = (key) => ({
+          get: () => c(key),
+          set: (v) => { config[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+        });
+        return {
+          recolorables: [
+            makeColor('background_color'),
+            makeColor('surface_color'),
+            makeColor('text_color'),
+            makeColor('accent_color'),
+            makeColor('cta_color'),
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => c('font_family'),
+            set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+          },
+          fontSizeable: {
+            get: () => c('font_size'),
+            set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+          }
+        };
+      },
+      mapToEditPanelValues: (config) => {
+        const c = key => config[key] || defaultConfig[key];
+        return new Map([
+          ['main_title', c('main_title')],
+          ['subtitle', c('subtitle')],
+          ['original_price', c('original_price')],
+          ['sale_price', c('sale_price')],
+          ['cta_text', c('cta_text')],
+        ]);
+      }
+    });
+  }
+
+  // Countdown timer (24h)
+  let time = 86400;
+  setInterval(() => {
+    const h = Math.floor(time / 3600);
+    const m = Math.floor((time % 3600) / 60);
+    const s = time % 60;
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('timer').textContent = `⏳ Oferta acaba em: ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+    if (time > 0) time--;
+  }, 1000);
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(30px)';
+    s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(s);
+  });
+
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ec64c1c178a1944',t:'MTc3NjIwNzMxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
